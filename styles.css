@@ -1,0 +1,25 @@
+.flex{
+  display: flex;
+}
+
+.flex-wrap{
+  flex-wrap: wrap;
+}
+
+.jts-sp-between{
+  justify-content: space-evenly;
+}
+
+
+.ant-apear{
+  animation: apear 0.2s linear;
+}
+
+@keyframes apear {
+  to{
+    opacity: 0;
+  }
+  from{
+    opacity: 1;
+  }
+}
