@@ -34,6 +34,8 @@ class Acceso extends BaseDeDatos
 
     function login()
     {
+        if ($_POST['captcha'] > "" && is_numeric($_POST['captcha']) && $_POST['captcha'] == $_SESSION['cap_login'])
+        
         if (isset($_POST['mail']) && isset($_POST['password'])) {
             // Obtenemos el correo y lo guardamos en una variable
             $correo = $_POST['mail'];
@@ -80,7 +82,7 @@ class Acceso extends BaseDeDatos
             $nuevPWD .= $cadena[rand() % $numeC];
 
         // $cad = "insert into usuario set nombre='" . $_POST['nombre'] . "', apellidos='" . $_POST['apellidos'] . "', email='" . $_POST['correo'] . "', clave=password('" . $nuevPWD . "'), fechaUltiAcceso=n" . date('Y-m-d') . ", tipo_usuario=2";
-        $cad = "insert into usuario(nombre, apellidos, email, clave, fechaUltiAcceso, tipo_usuario) values('" . $_POST['nombre'] . "', '" . $_POST['apellidos'] . "', '" . $_POST['correo'] . "', password('" . $nuevPWD . "'), '" . date('Y-m-d') . "', 2);";
+        $cad = "insert into usuario(nombre, apellidos, email, clave, fechaUltiAcceso) values('" . $_POST['nombre'] . "', '" . $_POST['apellidos'] . "', '" . $_POST['correo'] . "', password('" . $nuevPWD . "'), '" . date('Y-m-d') . "');";
 
         include("../resources/class.phpmailer.php");
         include("../resources/class.smtp.php");

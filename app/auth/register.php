@@ -36,6 +36,7 @@ $cap1 = captcha($resuRegistro);
 
 $_SESSION["capt_register"] = $resuRegistro;
 
+echo ($resuRegistro);
 ?>
 <!DOCTYPE html>
 <html lang="en">
